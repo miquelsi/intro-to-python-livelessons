@@ -8,6 +8,6 @@ mass_1 = 6e24  # in kg (mass of Earth)
 mass_2 = 4.9e24  # in kg (mass of Venus)
 distance = 4.1e10  # in m (distance between Earth and Venus)
 
-force = None  # <-- Replace with your code
+force = (G * mass_1 * mass_2) / (distance**2)
 
 print(force)
