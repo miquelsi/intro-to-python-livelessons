@@ -2,17 +2,20 @@
 Fill out the functions to calculate the area and circumference of a circle.
 Print the result to the user.
 """
-
+import math
 
 def area(r):
-    pass
+    return math.pi * r**2
 
 
 def circumference(r):
-    pass
+    return math.pi * 2 * r
 
 
 radius = input("Circle radius: ")
 
-print('Area: {}')  # <-- Call the area function and print the result
-print('Circumference: {}')  # <-- Call the circumference function and print
+circle_area = area(int(radius))
+circumference_lenght = circumference(int(radius))
+
+print('Area: ' + str(circle_area))
+print('Circumference: ' + str(circumference_lenght))
