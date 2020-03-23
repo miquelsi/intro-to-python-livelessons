@@ -72,7 +72,7 @@ def word_game(answer_array, template_array, wrong_guesses, chances):
 # Number of tries
 chances = 10
 # Word to guess
-answer = words[random.randint(0, len(words))]
+answer = random.choice(words)
 # Arrays with the wrong guessed letters
 wrong_guesses = []
 
