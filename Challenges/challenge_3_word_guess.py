@@ -1,3 +1,5 @@
+import random
+
 words = ['account', 'addition', 'adjustment', 'advertisement', 'agreement',
          'amount', 'amusement', 'animal', 'answer', 'apparatus', 'approval',
          'argument', 'attack', 'attempt', 'attention', 'attraction',
@@ -49,8 +51,46 @@ If the user doesn't win, tell them the answer.
 """
 
 
-def word_game():
-    pass
+def word_game(answer_array, template_array, wrong_guesses, chances):
+    print(template_array)
+    print("Wrong guesses: " + str(wrong_guesses))
+
+    found = False
+    guess = input("Give me a letter (" + str(chances) + " chances left): ")
+
+    for i in range(0, len(answer_array)):
+        if answer_array[i] == guess:
+            template_array[i] = guess
+            found = True
+
+    if not found:
+        wrong_guesses.append(guess)
+
+    return "_" not in template_array
 
 
-word_game()
+# Number of tries
+chances = 10
+# Word to guess
+answer = words[random.randint(0, len(words))]
+# Arrays with the wrong guessed letters
+wrong_guesses = []
+
+answer_array = []
+template_array = []
+for letter in answer:
+    answer_array.append(letter)
+    template_array.append("_")
+
+win = False
+while chances > 0:
+    chances -= 1
+    if word_game(answer_array, template_array, wrong_guesses, chances+1):
+        print("You win!")
+        print(answer_array)
+        win = True
+        break
+
+if not win:
+    print("GAME OVER!")
+    print("The answer is: " + answer)
