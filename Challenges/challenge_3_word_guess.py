@@ -76,11 +76,8 @@ answer = random.choice(words)
 # Arrays with the wrong guessed letters
 wrong_guesses = []
 
-answer_array = []
-template_array = []
-for letter in answer:
-    answer_array.append(letter)
-    template_array.append("_")
+answer_array = [letter for letter in answer]
+template_array = ['_' for letter in answer]
 
 win = False
 while chances > 0:
