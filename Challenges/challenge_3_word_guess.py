@@ -51,6 +51,13 @@ If the user doesn't win, tell them the answer.
 """
 
 
+def pick_random_word():
+    with open('ExampleSolutions/words.txt', 'r') as file:
+        file_words = file.readlines()
+        word = random.choice(file_words).strip()
+    return word
+
+
 def word_game(answer_array, template_array, wrong_guesses, chances):
     print(template_array)
     print("Wrong guesses: " + str(wrong_guesses))
@@ -72,7 +79,7 @@ def word_game(answer_array, template_array, wrong_guesses, chances):
 # Number of tries
 chances = 10
 # Word to guess
-answer = random.choice(words)
+answer = pick_random_word()
 # Arrays with the wrong guessed letters
 wrong_guesses = []
 
